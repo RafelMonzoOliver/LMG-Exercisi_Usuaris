@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <script src="/javascript/Main.js"></script>
+    <script type="module" src="/javascript/Main.js"></script>
+    <script type="module" src="/javascript/Usuari.js"></script>
+    <script type="module " src="/javascript/Main.js"></script>
+    
     <head>
         <title>Acativitat clase</title>
     </head>
@@ -8,9 +11,16 @@
         <h1>Gestio de usuaris</h1>
         <button id="Llista">Mostrar lista</button>
         <div>
-            <input type="text" id="nom" placeholder="Nombre">
-            <input type="text" id="mail" placeholder="Email">
-            <button id="Afegir">Añadir</button>
+            <form id="formulari">
+                <input type="text" id="nom" placeholder="Nombre">
+                <input type="text" pattern="[0-9]{8}[A-Za-z]{1}" id="mail" placeholder="Email" required>
+                <button type="submit" id="Afegir">Añadir</button>
+            </form>
+        </div>
+        <div id="divllista">
+            <div id="resultat">
+
+            </div>
         </div>
     </body>
 </html>
