@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded",function(){
     const resultat = document.getElementById("resultat");
     const gestio = new GestioUsuaris();
 
-
     form.addEventListener("submit",function (event){
         event.preventDefault();
 
@@ -17,9 +16,17 @@ document.addEventListener("DOMContentLoaded",function(){
         const mail = document.getElementById("mail").value;
         let usuari = new Usuari(nom,mail);
         gestio.afegirUsuari(usuari);
-         
+        div.style.display= 'block';
 
-    })
+    });
+
+
+    gestio.mostrarLlista();
+    button.addEventListener("click",function(){
+        mostrarLlista();
+        div.style.display = 'block';
+    });
+
 });
 
 

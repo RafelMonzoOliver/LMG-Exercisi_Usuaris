@@ -9,8 +9,44 @@ export class GestioUsuaris{
     }
     eliminarUsuari(Usuari){
         llistaUsuaris.splice(Usuari);
+        this.mostrarLlista();
     }
     mostrarLlista(){
-        console.log(llistaUsuaris);
+        const resultat = document.getElementById("resultat");
+        resultat.innerHTML = "";
+    
+        if(llistaUsuaris.length === 0){
+            resultat.innerHTML =`
+            <div>
+                error
+            </div>
+            `
+            ;
+            return;
+        }
+    
+        llistaUsuaris.forEach((Usuari,index)=>{
+            const usuariDiv = document.createElement("div");
+            usuariDiv.classList.add("usuariDiv");
+    
+            usuariDiv.innerHTML = `
+            <div>
+                <div>
+                    <p><strong>${Usuari.nom}</strong></p>
+                    <p><strong>${Usuari.mail}</strong></p>
+                </div>
+                <div>
+                    &emsp;<button onclick="eliminarUsuari(${index})">Borrar</button>
+                    &emsp;<button>Editar</button>
+                </div>
+            </div>
+            `;
+            resultat.appendChild(usuariDiv);
+    
+        });    
+    }
+    
+    editarUsuari(Usuari){
+
     }
 }
