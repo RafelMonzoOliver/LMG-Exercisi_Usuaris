@@ -13,9 +13,15 @@
         <div>
             <form id="formulari">
                 <input type="text" id="nom" placeholder="Nombre">
-                <input type="text" pattern="[0-9]{8}[A-Za-z]{1}" id="mail" placeholder="Email" required>
+                <input type="text" pattern="[0-9]{8}[A-Za-z]{1}" id="mail" placeholder="DNI" required>
                 <button type="submit" id="Afegir">Añadir</button>
             </form>
+
+            <form action="buscador">
+                <input type="text" id="buscar" placeholder="Buscar">
+                <button id="botonBusqueda">Buscar</button>
+            </form>
+
         </div>
         <div id="divllista">
             <div id="resultat">

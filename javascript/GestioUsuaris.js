@@ -1,52 +1,54 @@
 import { Usuari } from "./Usuari.js";
 export const llistaUsuaris = [];
 
-export class GestioUsuaris{
-    afegirUsuari(Usuari){
+export class GestioUsuaris {
+    afegirUsuari(Usuari) {
         llistaUsuaris.push(Usuari);
-        console.log('Usuari afegit,',Usuari);
+        console.log('Usuari afegit:', Usuari);
         this.mostrarLlista();
     }
-    eliminarUsuari(Usuari){
-        llistaUsuaris.splice(Usuari);
+
+    eliminarUsuari(index) {
+        if (index > -1) {
+            llistaUsuaris.splice(index, 1);
+            console.log("Usuari eliminat en la posició:", index);
+        }
         this.mostrarLlista();
     }
-    mostrarLlista(){
+
+    mostrarLlista() {
         const resultat = document.getElementById("resultat");
         resultat.innerHTML = "";
-    
-        if(llistaUsuaris.length === 0){
-            resultat.innerHTML =`
-            <div>
-                error
-            </div>
-            `
-            ;
+
+        if (llistaUsuaris.length === 0) {
+            resultat.innerHTML = `<div>No hay usuarios</div>`;
             return;
         }
-    
-        llistaUsuaris.forEach((Usuari,index)=>{
+
+        llistaUsuaris.forEach((Usuari, index) => {
             const usuariDiv = document.createElement("div");
             usuariDiv.classList.add("usuariDiv");
-    
+
             usuariDiv.innerHTML = `
-            <div>
                 <div>
                     <p><strong>${Usuari.nom}</strong></p>
                     <p><strong>${Usuari.mail}</strong></p>
+                    <button data-id="${index}" class="Eliminar">Borrar</button>
+                    <button data-id="${index}" class="Editar">Editar</button>
                 </div>
-                <div>
-                    &emsp;<button onclick="eliminarUsuari(${index})">Borrar</button>
-                    &emsp;<button>Editar</button>
-                </div>
-            </div>
             `;
             resultat.appendChild(usuariDiv);
-    
-        });    
-    }
-    
-    editarUsuari(Usuari){
+        });
 
+        console.log("Lista de usuarios actualizada");
+    }
+
+    editarUsuari(index, nouNom, nouMail) {
+        if (index >= 0 && index < llistaUsuaris.length) {
+            llistaUsuaris[index].nom = nouNom;
+            llistaUsuaris[index].mail = nouMail;
+            console.log("Usuari editat:", llistaUsuaris[index]);
+        }
+        this.mostrarLlista();
     }
 }
