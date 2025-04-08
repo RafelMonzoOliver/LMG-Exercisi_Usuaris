@@ -16,20 +16,21 @@ export class GestioUsuaris {
         this.mostrarLlista();
     }
 
-    mostrarLlista() {
+    mostrarLlista(usuaris = llistaUsuaris) {
         const resultat = document.getElementById("resultat");
         resultat.innerHTML = "";
-
-        if (llistaUsuaris.length === 0) {
-            resultat.innerHTML = `<div>No hay usuarios</div>`;
+    
+        if (usuaris.length === 0) {
+            resultat.innerHTML = `<div>No se encontraron usuarios</div>`;
             return;
         }
-
-        llistaUsuaris.forEach((Usuari, index) => {
-            if(index >=10) return;
+    
+        usuaris.slice(0, 10).forEach((Usuari) => {
+            const index = llistaUsuaris.indexOf(Usuari);
+    
             const usuariDiv = document.createElement("div");
             usuariDiv.classList.add("usuariDiv");
-
+    
             usuariDiv.innerHTML = `
                 <div>
                     <p><strong>${Usuari.nom}</strong></p>
@@ -40,8 +41,6 @@ export class GestioUsuaris {
             `;
             resultat.appendChild(usuariDiv);
         });
-
-        console.log("Lista de usuarios actualizada");
     }
 
 }

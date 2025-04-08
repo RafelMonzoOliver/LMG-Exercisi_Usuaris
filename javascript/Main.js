@@ -67,17 +67,19 @@ document.addEventListener("DOMContentLoaded", function () {
     //boton de cercar
     botonBusqueda.addEventListener("click", function (event) {
         event.preventDefault();
-        const index = parseInt(buscarInput.value);
-
-        if (!isNaN(index) && index >= 0 && index < llistaUsuaris.length) {
-            cargarUsuarioParaEditar(index);
-        } else {
-            alert("Índice no encontrado.");
+    
+        const textoBusqueda = buscarInput.value.toLowerCase().trim();
+    
+        if (textoBusqueda === "") {
+            gestio.mostrarLlista();
+            return;
         }
-    });
-
-    button.addEventListener("click", function () {
-        div.style.display = 'block';
+    
+        const resultatsFiltrats = llistaUsuaris.filter(u =>
+            u.nom.toLowerCase().startsWith(textoBusqueda)
+        );
+    
+        gestio.mostrarLlista(resultatsFiltrats);
     });
 
     //json
