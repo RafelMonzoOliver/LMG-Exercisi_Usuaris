@@ -1,0 +1,46 @@
+[
+    {
+      "nom": "Juan",
+      "mail": "12345678A"
+    },
+    {
+      "nom": "Veronica",
+      "mail": "87654321B"
+    },
+    {
+      "nom": "Enrique",
+      "mail": "11223344C"
+    },
+    {
+        "nom": "Susana",
+        "mail": "44332211F"
+    },
+    {
+        "nom": "Noviak",
+        "mail": "9231389N"
+    },
+    {
+        "nom": "Jane",
+        "mail": "78234718F"
+    },
+    {
+        "nom": "Raymond",
+        "mail": "78732143N"
+    },
+    {
+        "nom":"Elizabeth",
+        "mail": "16734895L"
+    },
+    {
+        "nom": "Heinz",
+        "mail":"83214782D"
+    },
+    {
+        "nom": "Dolores",
+        "mail": "54329821R"
+    },
+    {
+        "nom": "Alek",
+        "mail": "98631234A"
+    }
+  ]  

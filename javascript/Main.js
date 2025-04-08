@@ -72,19 +72,18 @@ document.addEventListener("DOMContentLoaded", function () {
         div.style.display = 'block';
     });
 
-    const Juan = new Usuari("Juan", "12345678A");
-    const Veronica = new Usuari("Veronica", "87654321B");
-    const Enrique = new Usuari("Enrique", "11223344C");
 
-    llistaUsuaris.push(Juan);
-    llistaUsuaris.push(Veronica);
-    llistaUsuaris.push(Enrique);
-    console.log(llistaUsuaris.length);
-    console.log(llistaUsuaris);
-
-    fetch("https://jsonplaceholder.typicode.com/users")
-        .then(resposta => resposta.json())
-        .then(dades => console.log(dades))
-        .catch(error => console.error("Error:",error));
-    gestio.mostrarLlista();
+    fetch('/json/Users.json')
+        .then(response => response.json())
+        .then(data => {
+            data.forEach(u => {
+                const usuari = new Usuari(u.nom, u.mail);
+                llistaUsuaris.push(usuari);
+            });
+            gestio.mostrarLlista();
+            console.log("Usuaris:",llistaUsuaris);
+        })
+        .catch(error =>{
+            console.error("Error carragant usuaris JSON:", error);
+        });
 });

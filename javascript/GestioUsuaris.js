@@ -26,6 +26,7 @@ export class GestioUsuaris {
         }
 
         llistaUsuaris.forEach((Usuari, index) => {
+            if(index >=10) return;
             const usuariDiv = document.createElement("div");
             usuariDiv.classList.add("usuariDiv");
 
@@ -51,4 +52,5 @@ export class GestioUsuaris {
         }
         this.mostrarLlista();
     }
+
 }
