@@ -44,13 +44,4 @@ export class GestioUsuaris {
         console.log("Lista de usuarios actualizada");
     }
 
-    editarUsuari(index, nouNom, nouMail) {
-        if (index >= 0 && index < llistaUsuaris.length) {
-            llistaUsuaris[index].nom = nouNom;
-            llistaUsuaris[index].mail = nouMail;
-            console.log("Usuari editat:", llistaUsuaris[index]);
-        }
-        this.mostrarLlista();
-    }
-
 }

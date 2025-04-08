@@ -10,18 +10,20 @@
     <body>
         <h1>Gestio de usuaris</h1>
         <button id="Llista">Mostrar lista</button>
+        <!-- Formulari per a la creacio dels usuaris -->
         <div>
             <form id="formulari">
                 <input type="text" id="nom" placeholder="Nombre">
                 <input type="text" pattern="[0-9]{8}[A-Za-z]{1}" id="mail" placeholder="DNI" required>
                 <button type="submit" id="Afegir">Añadir</button>
             </form>
-
+        <!-- Cercador d'usuaris -->
             <form action="buscador">
                 <input type="text" id="buscar" placeholder="Buscar">
                 <button id="botonBusqueda">Buscar</button>
             </form>
 
+        <!-- Llista d'usuaris -->    
         </div>
         <div id="divllista">
             <div id="resultat">

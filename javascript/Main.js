@@ -14,6 +14,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const gestio = new GestioUsuaris();
     let indexEdicio = -1; 
 
+    //Boto de mostrar llista
+    button.addEventListener("click",function(){
+        gestio.mostrarLlista();
+        div.style.display = 'block';
+    });
+
+    //formulari afegir usuari
     form.addEventListener("submit", function (event) {
         event.preventDefault();
         const nom = nomInput.value;
@@ -45,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    //edicio usuaris
     function cargarUsuarioParaEditar(index) {
         if (index >= 0 && index < llistaUsuaris.length) {
             nomInput.value = llistaUsuaris[index].nom;
@@ -56,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    //boton de cercar
     botonBusqueda.addEventListener("click", function (event) {
         event.preventDefault();
         const index = parseInt(buscarInput.value);
@@ -68,11 +77,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     button.addEventListener("click", function () {
-        gestio.mostrarLlista();
         div.style.display = 'block';
     });
 
-
+    //json
     fetch('/json/Users.json')
         .then(response => response.json())
         .then(data => {
@@ -80,7 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 const usuari = new Usuari(u.nom, u.mail);
                 llistaUsuaris.push(usuari);
             });
-            gestio.mostrarLlista();
             console.log("Usuaris:",llistaUsuaris);
         })
         .catch(error =>{
