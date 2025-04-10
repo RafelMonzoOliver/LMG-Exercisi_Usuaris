@@ -46,4 +46,16 @@ export class GestioUsuaris {
         });
     }
 
+    editarUsuari(index, nouNom, nouMail) {
+        if (index >= 0 && index < llistaUsuaris.length) {
+            llistaUsuaris[index].nom = nouNom;
+            llistaUsuaris[index].mail = nouMail;
+            console.log("Usuari editat:", llistaUsuaris[index]);
+            this.mostrarLlista();
+        } else {
+            console.error("Índice inválido para edición:", index);
+        }
+    }
+    
+
 }
