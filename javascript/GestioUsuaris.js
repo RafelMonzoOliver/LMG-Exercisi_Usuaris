@@ -3,7 +3,7 @@ export const llistaUsuaris = [];
 
 export class GestioUsuaris {
     afegirUsuari(Usuari) {
-        const existeix = llistaUsuaris.some(u => u.mail === Usuari.mail); 
+        const existeix = llistaUsuaris.some(u => u.dni === Usuari.dni); 
         if (existeix) {
             console.log("Error: l'usuari ja existeix o el DNI esta malament");
         } else {
@@ -27,7 +27,7 @@ export class GestioUsuaris {
         const resultat = document.getElementById("resultat");
         resultat.innerHTML = "";
     
-        //EL que pasa cuant la llista esta buida
+        //EL que pasa cuant la llista esta
         if (usuaris.length === 0) {
             resultat.innerHTML = `<div>
                     <img src ="/sources/img/ralsei.png">
@@ -46,7 +46,7 @@ export class GestioUsuaris {
             usuariDiv.innerHTML = `
                 <div>
                     <p><strong>${Usuari.nom}</strong></p>
-                    <p><strong>${Usuari.mail}</strong></p>
+                    <p><strong>${Usuari.dni}</strong></p>
                     <button data-id="${index}" class="Eliminar">Borrar</button>
                     <button data-id="${index}" class="Editar">Editar</button>
                 </div>
@@ -57,7 +57,7 @@ export class GestioUsuaris {
 
     editarUsuari(index, nouNom, nouMail) {
         if (index >= 0 && index < llistaUsuaris.length) {
-            const DNIusado = llistaUsuaris.some((usuari,i) => i !== index && usuari.mail === nouMail);
+            const DNIusado = llistaUsuaris.some((usuari,i) => i !== index && usuari.dni === nouMail);
     
             //se asegura de que al editar un usuari no li posis el dni d'un altre usuari
             if(DNIusado){
@@ -66,7 +66,7 @@ export class GestioUsuaris {
             }
     
             llistaUsuaris[index].nom = nouNom;
-            llistaUsuaris[index].mail = nouMail;
+            llistaUsuaris[index].dni = nouMail;
             
             //localstorage
             this.guardarLocalStorage(); 

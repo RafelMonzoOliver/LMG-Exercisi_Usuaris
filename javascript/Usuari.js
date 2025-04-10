@@ -1,9 +1,9 @@
 export class Usuari{
-    constructor(nom,mail){
+    constructor(nom,dni){
         this.nom = nom;
-        this.mail = mail;
+        this.dni = dni;
     }
     mostrarDetalls(){
-        return `${this.nom} ${this.mail},`;
+        return `${this.nom} ${this.dni},`;
     }
 }

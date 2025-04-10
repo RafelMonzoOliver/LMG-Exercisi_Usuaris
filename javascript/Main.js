@@ -24,13 +24,13 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (event) {
         event.preventDefault();
         const nom = nomInput.value;
-        const mail = mailInput.value;
+        const dni = mailInput.value;
 
         if (indexEdicio === -1) {
-            let usuari = new Usuari(nom, mail);
+            let usuari = new Usuari(nom, dni);
             gestio.afegirUsuari(usuari);
         } else {
-            gestio.editarUsuari(indexEdicio, nom, mail);
+            gestio.editarUsuari(indexEdicio, nom, dni);
             indexEdicio = -1; 
             submitButton.textContent = "Añadir"; 
         }
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (usuarisGuardats) {
         JSON.parse(usuarisGuardats).forEach(u => {
-            const usuari = new Usuari(u.nom, u.mail);
+            const usuari = new Usuari(u.nom, u.dni);
             llistaUsuaris.push(usuari);
         });
         console.log("Usuaris carregats des de localStorage:", llistaUsuaris);
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 //Numero de usuaris que retorna
                 const retornar = data.slice(0,10);
                 retornar.forEach(u => {
-                    const usuari = new Usuari(u.nom,u.mail);
+                    const usuari = new Usuari(u.nom,u.dni);
                     llistaUsuaris.push(usuari);
                 });
                 localStorage.setItem("usuaris", JSON.stringify(llistaUsuaris));

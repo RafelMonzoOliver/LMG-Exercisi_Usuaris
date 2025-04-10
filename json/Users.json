@@ -1,50 +1,50 @@
 [
     {
       "nom": "Jean",
-      "mail": "12345678A"
+      "dni": "12345678A"
     },
     {
       "nom": "Natasha",
-      "mail": "87654321B"
+      "dni": "87654321B"
     },
     {
       "nom": "Alexander",
-      "mail": "11223344C"
+      "dni": "11223344C"
     },
     {
         "nom": "Felicia",
-        "mail": "44332211F"
+        "dni": "44332211F"
     },
     {
         "nom": "Noviak",
-        "mail": "9231389N"
+        "dni": "9231389N"
     },
     {
         "nom": "Jane",
-        "mail": "78234718F"
+        "dni": "78234718F"
     },
     {
         "nom": "Raymond",
-        "mail": "78732143N"
+        "dni": "78732143N"
     },
     {
         "nom":"Elizabeth",
-        "mail": "16734895L"
+        "dni": "16734895L"
     },
     {
         "nom": "Heinz",
-        "mail":"83214782D"
+        "dni":"83214782D"
     },
     {
         "nom": "Dolores",
-        "mail": "54329821R"
+        "dni": "54329821R"
     },
     {
         "nom": "Alek",
-        "mail": "98631234A"
+        "dni": "98631234A"
     },
     {
         "nom": "Cooper",
-        "mail": "12947221H"
+        "dni": "12947221H"
     }
   ]  
