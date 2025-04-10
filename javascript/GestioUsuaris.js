@@ -21,16 +21,19 @@ export class GestioUsuaris {
         resultat.innerHTML = "";
     
         if (usuaris.length === 0) {
-            resultat.innerHTML = `<div>No se encontraron usuarios</div>`;
+            resultat.innerHTML = `<div>
+                    <img src ="/sources/img/ralsei.png">
+                </div>`;
             return;
         }
-    
+
+      
         usuaris.slice(0, 10).forEach((Usuari) => {
             const index = llistaUsuaris.indexOf(Usuari);
     
             const usuariDiv = document.createElement("div");
             usuariDiv.classList.add("usuariDiv");
-    
+        
             usuariDiv.innerHTML = `
                 <div>
                     <p><strong>${Usuari.nom}</strong></p>
