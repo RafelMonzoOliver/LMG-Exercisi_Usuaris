@@ -38,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
         form.reset();
         div.style.display = 'block';
     });
-
+    
+    //els botons de borrar i editar
     document.addEventListener("click", function (event) {
         const target = event.target;
         const index = parseInt(target.getAttribute("data-id"));
@@ -70,11 +71,13 @@ document.addEventListener("DOMContentLoaded", function () {
     
         const textoBusqueda = buscarInput.value.toLowerCase().trim();
     
+        //Si la barra esta en blanc simplement te mostrara tots els usuaris
         if (textoBusqueda === "") {
             gestio.mostrarLlista();
             return;
         }
     
+        //ELs resultats del nom cercat
         const resultatsFiltrats = llistaUsuaris.filter(u =>
             u.nom.toLowerCase().startsWith(textoBusqueda)
         );
@@ -82,17 +85,30 @@ document.addEventListener("DOMContentLoaded", function () {
         gestio.mostrarLlista(resultatsFiltrats);
     });
 
-    //json
-    fetch('/json/Users.json')
-        .then(response => response.json())
-        .then(data => {
-            data.forEach(u => {
-                const usuari = new Usuari(u.nom, u.mail);
-                llistaUsuaris.push(usuari);
-            });
-            console.log("Usuaris:",llistaUsuaris);
-        })
-        .catch(error =>{
-            console.error("Error carragant usuaris JSON:", error);
+    //LocalStroage
+    const usuarisGuardats = localStorage.getItem("usuaris");
+
+    if (usuarisGuardats) {
+        JSON.parse(usuarisGuardats).forEach(u => {
+            const usuari = new Usuari(u.nom, u.mail);
+            llistaUsuaris.push(usuari);
         });
+        console.log("Usuaris carregats des de localStorage:", llistaUsuaris);
+    } else {
+        fetch('/json/Users.json')
+            .then(response => response.json())
+            .then(data => {
+                //Numero de usuaris que retorna
+                const retornar = data.slice(0,10);
+                retornar.forEach(u => {
+                    const usuari = new Usuari(u.nom,u.mail);
+                    llistaUsuaris.push(usuari);
+                });
+                localStorage.setItem("usuaris", JSON.stringify(llistaUsuaris));
+                console.log("Usuaris carregats des del JSON i guardats en localStorage:", llistaUsuaris);
+            })
+            .catch(error => {
+                console.error("Error carregant usuaris JSON:", error);
+            });
+    }
 });

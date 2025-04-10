@@ -1,18 +1,18 @@
 [
     {
-      "nom": "Juan",
+      "nom": "Jean",
       "mail": "12345678A"
     },
     {
-      "nom": "Veronica",
+      "nom": "Natasha",
       "mail": "87654321B"
     },
     {
-      "nom": "Enrique",
+      "nom": "Alexander",
       "mail": "11223344C"
     },
     {
-        "nom": "Susana",
+        "nom": "Felicia",
         "mail": "44332211F"
     },
     {
@@ -42,5 +42,9 @@
     {
         "nom": "Alek",
         "mail": "98631234A"
+    },
+    {
+        "nom": "Cooper",
+        "mail": "12947221H"
     }
   ]  
